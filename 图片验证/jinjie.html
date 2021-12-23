@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body style="background: url(img/back.jpg);background-size: cover;">
+		<div id="app" style="font-size: 20px;">
+			<img src="img/img.png" @click="show()" style="width: 500px;height: 339px;">
+			<br>随机数:
+			<input type="text" v-model="floor" /><br />
+			<button v-on:click="fun()" style="font-size: 15px;">点击生成随机数</button>
+			<br>
+			<h2>根据随机数点击小动物即可验证成功</h2>
+		</div>
+		<script type="text/javascript">
+			let v = new Vue({
+				el: "#app",
+				data: {
+
+					clickX: 0,
+					clickY: 0,
+					floor: 0
+				},
+				methods: {
+					show() {
+						console.log(event.clientX + "," + event.clientY);
+						console.log(v.floor);
+						v.clickX = event.clientX;
+						v.clickY = event.clientY;
+
+						if (v.floor == 1 && v.clickX > 34 && v.clickX < 139 && v.clickY > 34 && v.clickY < 160) {
+							console.log("第一次点击");
+							alert("恭喜，验证成功~！");
+
+						}
+						if (v.floor == 2 && v.clickX > 195 && v.clickX < 290 && v.clickY > 35 && v.clickY < 165) {
+							console.log("第二次点击");
+							alert("恭喜，验证成功~！");
+						}
+						if (v.floor == 3 && v.clickX > 356 && v.clickX < 460 && v.clickY > 42 && v.clickY < 157) {
+							console.log("第三次点击");
+							alert("恭喜，验证成功~！");
+						}
+						if (v.floor == 4 && v.clickX > 24 && v.clickX < 126 && v.clickY > 205 && v.clickY < 313) {
+							console.log("第四次点击");
+							alert("恭喜，验证成功~！");
+						}
+						if (v.floor == 5 && v.clickX > 190 && v.clickX < 293 && v.clickY > 198 && v.clickY < 315) {
+							console.log("第五次点击");
+							alert("恭喜，验证成功~！");
+						}
+						if (v.floor == 6 && v.clickX > 366 && v.clickX < 458 && v.clickY > 179 && v.clickY < 325) {
+							console.log("第六次点击");
+							alert("恭喜，验证成功~！");
+						}
+
+					},
+					fun() {
+						v.floor = Math.floor(Math.random() * 6 + 1); //生成随机数1-6
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
